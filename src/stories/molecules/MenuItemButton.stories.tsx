@@ -21,6 +21,5 @@ export const Active: Story = {
   args: {
     icon: SquarePen,
     label: '습득물 등록하기',
-    active: true,
   },
 };
