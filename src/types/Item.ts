@@ -4,14 +4,10 @@ export type ItemImage = {
   contentType: string;
 };
 
-export type ItemInfo = {
+export interface ItemOverviewCardProps {
   title: string;
   date: string;
   tags: string[];
   image: ItemImage;
   status: boolean;
-};
-
-export interface ItemOverviewCardProps {
-  itemInfo: ItemInfo;
 }
