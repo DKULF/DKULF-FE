@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Sidebar } from '../../components/organisms/Sidebar';
+import { Sidebar } from '@/components/organisms/Sidebar';
 import { LogOut, SquarePen } from 'lucide-react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -29,13 +29,12 @@ const menuItems = [
 ];
 
 const userProfile = {
-  name: '홍길동',
+  name: '서유빈',
   email: '31234232@dankook.ac.kr',
 };
 
 export const Default: Story = {
   args: {
-    isMenuOpen: true,
     setIsMenuOpen: () => {},
     userProfile: userProfile,
     menuItems,

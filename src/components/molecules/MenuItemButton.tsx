@@ -1,13 +1,6 @@
-import { LucideIcon } from 'lucide-react';
-import { MenuText } from '../atoms/MenuText';
-import { MenuIcon } from '../atoms/MenuIcon';
-
-export interface MenuItemButtonProps {
-  icon: LucideIcon;
-  label: string;
-  onClick?: () => void;
-  className?: string;
-}
+import { MenuIcon } from '@/components/atoms/MenuIcon';
+import { MenuText } from '@/components/atoms/MenuText';
+import { MenuItemButtonProps } from '@/types/Sidebar';
 
 export const MenuItemButton = ({
   icon,
