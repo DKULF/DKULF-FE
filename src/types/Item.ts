@@ -9,6 +9,7 @@ export type ItemInfo = {
   date: string;
   tags: string[];
   image: ItemImage;
+  status: boolean;
 };
 
 export interface ItemOverviewCardProps {

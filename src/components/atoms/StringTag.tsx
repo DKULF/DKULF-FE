@@ -3,5 +3,5 @@ interface StringTagProps {
 }
 
 export const StringTag = ({ tag = '' }: StringTagProps) => {
-  return <span className="text-blue-600 text-xs font-semibold">#{tag}</span>;
+  return <span className="text-blue-600 text-sm font-semibold">#{tag}</span>;
 };

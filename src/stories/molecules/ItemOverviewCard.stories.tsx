@@ -20,6 +20,7 @@ const itemInfo = {
   date: '2024.12.31',
   tags: ['파란색', '우산', '공학관'],
   image: SampleImage,
+  status: true,
 };
 
 export const Default: Story = {
