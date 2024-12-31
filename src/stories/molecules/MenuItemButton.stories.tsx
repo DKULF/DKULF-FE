@@ -1,5 +1,5 @@
+import { MenuItemButton } from '@/components/molecules/MenuItemButton';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MenuItemButton } from '../../components/molecules/MenuItemButton';
 import { SquarePen } from 'lucide-react';
 
 const meta = {

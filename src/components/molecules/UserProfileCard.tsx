@@ -1,5 +1,5 @@
-import { Avatar } from '../atoms/Avatar';
-import { UserInfo } from '../atoms/UserInfo';
+import { Avatar } from '@/components/atoms/Avatar';
+import { UserInfo } from '@/components/atoms/UserInfo';
 
 interface UserProfileCardProps {
   letter: string;

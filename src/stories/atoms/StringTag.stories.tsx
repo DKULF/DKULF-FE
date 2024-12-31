@@ -1,5 +1,5 @@
+import { StringTag } from '@/components/atoms/StringTag';
 import type { Meta, StoryObj } from '@storybook/react';
-import { StringTag } from '../../components/atoms/StringTag';
 
 const meta = {
   title: 'Atoms/StringTag',

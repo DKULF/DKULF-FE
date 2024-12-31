@@ -1,6 +1,6 @@
+import { SampleImage } from '@/assets';
+import { ImagePreviewBox } from '@/components/atoms/ImagePreviewBox';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ImagePreviewBox } from '../../components/atoms/ImagePreviewBox';
-import { SampleImage } from '../../assets';
 
 const meta = {
   title: 'Atoms/ImagePreviewBox',

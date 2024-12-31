@@ -1,5 +1,5 @@
+import { StatusBadge } from '@/components/atoms/StatusBadge';
 import type { Meta, StoryObj } from '@storybook/react';
-import { StatusBadge } from '../../components/atoms/StatusBadge';
 
 const meta = {
   title: 'Atoms/StatusBadge',

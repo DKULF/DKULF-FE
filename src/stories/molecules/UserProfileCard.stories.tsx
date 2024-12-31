@@ -1,5 +1,5 @@
+import { UserProfileCard } from '@/components/molecules/UserProfileCard';
 import type { Meta, StoryObj } from '@storybook/react';
-import { UserProfileCard } from '../../components/molecules/UserProfileCard';
 
 const meta = {
   title: 'Molecules/UserProfileCard',
