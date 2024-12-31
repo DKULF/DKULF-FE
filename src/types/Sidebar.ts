@@ -1,20 +1,20 @@
 import { LucideIcon } from 'lucide-react';
 
-export interface AvatarProps {
-  letter: string;
-  className?: string;
-}
-
-export interface UserProfile {
+export type UserProfile = {
   name: string;
   email: string;
-}
+};
 
-export interface MenuItem {
+export type MenuItem = {
   id: string;
   icon: LucideIcon;
   text: string;
   route: string;
+};
+
+export interface AvatarProps {
+  letter: string;
+  className?: string;
 }
 
 export interface SidebarProps {
