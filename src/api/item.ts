@@ -20,7 +20,19 @@ export const getItemKeyword = async (keyword: string) => {
 export const postItem = async (
   form: Pick<ItemForm, 'name' | 'tags' | 'image'>,
 ) => {
-  const { data } = await itemApiInstance.post(END_POINT.REGISTER_ITEM, form);
+  const formData = new FormData();
+  formData.append('name', form.name);
+  formData.append('tags', form.tags);
+  formData.append('image', form.image);
+  const { data } = await itemApiInstance.post(
+    END_POINT.REGISTER_ITEM,
+    formData,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
   return data;
 };
 
