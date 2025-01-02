@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LoginForm } from '@/components/molecules/LoginForm';
+import { LoginForm } from '@/components/organisms/LoginForm';
 import { Header } from '@/components/organisms/Header';
 import { useNavigate } from 'react-router-dom';
 
