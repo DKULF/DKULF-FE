@@ -7,11 +7,19 @@ interface InputProps extends ComponentPropsWithRef<'input'> {
   isError?: boolean;
   alertMessage?: string;
   buttonText?: string;
+  onButtonClick?: () => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { label = '', isError = false, alertMessage, buttonText, ...attributes },
+    {
+      label = '',
+      isError = false,
+      alertMessage,
+      buttonText,
+      onButtonClick,
+      ...attributes
+    },
     ref,
   ) => {
     return (
@@ -23,10 +31,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <div className="flex space-x-2 items-center">
             <input
               ref={ref}
-              className="w-full p-3 border rounded-lg focus:outline-none "
+              className="w-full p-3 border rounded-lg focus:outline-none"
               {...attributes}
             />
-            {buttonText && <Button size="small">{buttonText}</Button>}
+            {buttonText && (
+              <Button size="small" onClick={onButtonClick}>
+                {buttonText}
+              </Button>
+            )}
           </div>
           {alertMessage && (
             <AlertMessage isError={isError}>{alertMessage}</AlertMessage>
