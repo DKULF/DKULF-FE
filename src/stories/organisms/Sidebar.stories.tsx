@@ -26,7 +26,7 @@ const loginedMenuItems = [
     id: 'register-item',
     icon: SquarePen,
     text: '습득물 등록하기',
-    route: '/resigter-item',
+    route: '/register-item',
   },
   { id: 'logout', icon: LogOut, text: '로그아웃', route: '/' },
 ];
