@@ -4,7 +4,7 @@ import { Header } from '@/components/organisms/Header';
 import { Sidebar } from '@/components/organisms/Sidebar';
 import { items } from '@/constants/dummyData';
 import { menuItems } from '@/constants/menuItems';
-import { UserProfile } from '@/constants/userProfile';
+import { userProfile } from '@/constants/userProfile';
 import React, { useState } from 'react';
 
 const LandingPage = () => {
@@ -18,7 +18,7 @@ const LandingPage = () => {
         <Sidebar
           setIsMenuOpen={setIsMenuOpen}
           menuItems={menuItems}
-          userProfile={UserProfile}
+          userProfile={userProfile}
           isLogin={accessToken ? true : false}
         />
       )}
