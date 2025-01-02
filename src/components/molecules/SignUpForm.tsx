@@ -1,7 +1,7 @@
 import { Input } from '@/components/atoms/Input';
 import { Button } from '@/components/atoms/Button';
 
-export const LoginForm = () => {
+export const SignUpForm = () => {
   return (
     <form className="space-y-4 w-full">
       <Input

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LoginForm } from '@/components/molecules/LoginForm';
+import { SignUpForm } from '@/components/molecules/SignUpForm';
 
 const meta = {
-  title: 'Molecules/LoginForm',
-  component: LoginForm,
+  title: 'Molecules/SignUpForm',
+  component: SignUpForm,
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof LoginForm>;
+} satisfies Meta<typeof SignUpForm>;
 
 export default meta;
 
