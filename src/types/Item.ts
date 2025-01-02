@@ -10,6 +10,7 @@ export interface ItemOverviewCardProps {
   tags: string[];
   image: ItemImage;
   status: boolean;
+  onClick?: () => void;
 }
 
 export interface ItemForm {
@@ -17,3 +18,12 @@ export interface ItemForm {
   tags: string;
   image: File;
 }
+
+export type Item = {
+  _id: string;
+  name: string;
+  tags: string[];
+  status: boolean;
+  createdAt: string;
+  image: ItemImage;
+};
