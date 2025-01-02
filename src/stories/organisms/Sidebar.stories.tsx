@@ -23,10 +23,10 @@ type Story = StoryObj<typeof meta>;
 
 const loginedMenuItems = [
   {
-    id: 'create-post',
+    id: 'register-item',
     icon: SquarePen,
     text: '습득물 등록하기',
-    route: '/create-post',
+    route: '/resigter-item',
   },
   { id: 'logout', icon: LogOut, text: '로그아웃', route: '/' },
 ];
