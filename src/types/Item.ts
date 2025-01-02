@@ -11,3 +11,9 @@ export interface ItemOverviewCardProps {
   image: ItemImage;
   status: boolean;
 }
+
+export interface ItemForm {
+  name: string;
+  tags: string;
+  image: File;
+}
