@@ -10,7 +10,7 @@ export const ImagePreviewBox = ({
 }: ImagePreviewBoxProps) => {
   const sizeClasses = {
     sm: 'w-[85px] h-[85px] rounded-xl',
-    lg: 'w-[380px] h-[200px] rounded-t-xl',
+    lg: 'w-full h-[200px] rounded-t-xl',
   };
   return (
     <div

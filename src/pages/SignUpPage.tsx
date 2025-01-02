@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SignUpForm } from '@/components/organisms/SignUpForm';
-import { Header } from '@/components/organisms/Header';
 import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
@@ -31,19 +30,16 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header role="others" title="회원가입" />
-      <div className="px-4 mt-14 pt-12">
-        <SignUpForm
-          emailAlert={emailAlert}
-          codeAlert={codeAlert}
-          passwordAlert={passwordAlert}
-          handleEmailSend={handleEmailSend}
-          handleCodeVerify={handleCodeVerify}
-          handlePasswordCheck={handlePasswordCheck}
-          handleSignUp={handleSignUp}
-        />
-      </div>
+    <div className="mt-10">
+      <SignUpForm
+        emailAlert={emailAlert}
+        codeAlert={codeAlert}
+        passwordAlert={passwordAlert}
+        handleEmailSend={handleEmailSend}
+        handleCodeVerify={handleCodeVerify}
+        handlePasswordCheck={handlePasswordCheck}
+        handleSignUp={handleSignUp}
+      />
     </div>
   );
 };
