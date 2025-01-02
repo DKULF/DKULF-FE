@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Header } from '@/components/organisms/Header';
-import { RegisterForm } from '@/components/organisms/RegisterForm';
 import { useState } from 'react';
+import { RegisterForm } from '@/components/organisms/RegisterForm';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterItemPage = () => {
@@ -24,17 +23,16 @@ const RegisterItemPage = () => {
     alert('등록 완료');
     navigate('/');
   };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header role="others" title="습득물 등록" />
-      <div className="px-4 mt-14 pt-12">
-        <RegisterForm
-          imagePreview={imagePreview}
-          onImageChange={handleImageChange}
-          onSubmit={handleSubmit}
-        />
-      </div>
+    <div className="mt-10">
+      <RegisterForm
+        imagePreview={imagePreview}
+        onImageChange={handleImageChange}
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 };
+
 export default RegisterItemPage;
