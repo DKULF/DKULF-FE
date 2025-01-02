@@ -9,6 +9,7 @@ export const Sidebar = ({
   setIsMenuOpen,
   menuItems,
   userProfile,
+  isLogin,
 }: SidebarProps) => {
   const navigate = useNavigate();
   const letter = getFirstLetter(userProfile.name);
@@ -44,6 +45,8 @@ export const Sidebar = ({
           letter={letter}
           name={userProfile.name}
           email={userProfile.email}
+          isLogin={isLogin}
+          onClick={isLogin ? undefined : () => navigate('/login')}
         />
 
         <div className="space-y-2 mt-6 flex flex-col">

@@ -18,6 +18,7 @@ export interface AvatarProps {
 }
 
 export interface SidebarProps {
+  isLogin: boolean;
   setIsMenuOpen: (isOpen: boolean) => void;
   menuItems: MenuItem[];
   userProfile: UserProfile;
@@ -28,4 +29,18 @@ export interface MenuItemButtonProps {
   label: string;
   onClick?: () => void;
   className?: string;
+}
+
+export interface UserProfileCardProps {
+  letter: string;
+  name: string;
+  email: string;
+  isLogin: boolean;
+  onClick?: () => void;
+}
+
+export interface UserInfoProps {
+  name: string;
+  email: string;
+  isLogin: boolean;
 }
