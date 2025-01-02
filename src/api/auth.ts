@@ -1,4 +1,4 @@
-import { authApiInstance } from '@/api/interceptor';
+import authApiInstance from '@/api/authApiInstance';
 import { END_POINT } from '@/constants/api';
 import { MemberForm } from '@/types/member';
 

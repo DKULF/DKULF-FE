@@ -1,9 +1,9 @@
-import { itemApiInstance } from '@/api/interceptor';
+import itemApiInstance from '@/api/itemApiInstance';
 import { END_POINT } from '@/constants/api';
 import { ItemForm } from '@/types/Item';
 
 export const getItemList = async () => {
-  const { data } = await itemApiInstance.get(`${END_POINT.ITEM}`);
+  const { data } = await itemApiInstance.get(`${END_POINT.ITEM_LIST}`);
   return data;
 };
 
