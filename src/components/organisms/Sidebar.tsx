@@ -9,6 +9,7 @@ export const Sidebar = ({
   setIsMenuOpen,
   menuItems,
   userProfile,
+  isLogin,
 }: SidebarProps) => {
   const navigate = useNavigate();
   const letter = getFirstLetter(userProfile.name);
@@ -44,22 +45,25 @@ export const Sidebar = ({
           letter={letter}
           name={userProfile.name}
           email={userProfile.email}
+          isLogin={isLogin}
+          onClick={isLogin ? undefined : () => navigate('/login')}
         />
-
-        <div className="space-y-2 mt-6 flex flex-col">
-          {menuItems.map((item, index) => {
-            const isLogout = index === 1;
-            return (
-              <MenuItemButton
-                key={item.id}
-                icon={item.icon}
-                label={item.text}
-                onClick={() => handleNavigate(item, isLogout)}
-                className={isLogout ? 'text-red-600' : ''}
-              />
-            );
-          })}
-        </div>
+        {isLogin && (
+          <div className="space-y-2 mt-6 flex flex-col">
+            {menuItems.map((item, index) => {
+              const isLogout = index === 1;
+              return (
+                <MenuItemButton
+                  key={item.id}
+                  icon={item.icon}
+                  label={item.text}
+                  onClick={() => handleNavigate(item, isLogout)}
+                  className={isLogout ? 'text-red-600' : ''}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

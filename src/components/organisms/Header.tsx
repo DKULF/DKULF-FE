@@ -2,7 +2,7 @@ import { ArrowLeft, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
-  setIsMenuOpen: (isOpen: boolean) => void;
+  setIsMenuOpen?: (isOpen: boolean) => void;
   role?: 'landing' | 'others';
   title?: string;
 }
@@ -15,7 +15,7 @@ export const Header = ({
   const navigate = useNavigate();
 
   const handleMainButtonClick = () => {
-    if (role === 'landing') {
+    if (role === 'landing' && setIsMenuOpen) {
       setIsMenuOpen(true);
     } else {
       navigate('/');
@@ -26,7 +26,7 @@ export const Header = ({
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-40">
-      <div className="mx-auto bg-white shadow-sm w-full max-w-[430px] h-14 justify-between px-4 z-99999 relative flex items-center ">
+      <div className="mx-auto bg-white shadow-sm w-full max-w-[430px] h-14 justify-between px-4 z-99999 relative flex items-center">
         <button className="p-2 cursor-pointer" onClick={handleMainButtonClick}>
           <Icon className="w-6 h-6" />
         </button>
