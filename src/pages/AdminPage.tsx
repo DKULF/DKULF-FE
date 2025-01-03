@@ -4,7 +4,7 @@ import { useItemListQuery } from '@/hooks/api/item/useItemListQuery';
 import { Item } from '@/types/Item';
 
 const AdminPage = () => {
-  const { items: items } = useItemListQuery();
+  const { items } = useItemListQuery();
   return (
     <div className="flex items-center flex-col">
       <SummaryCard totalItems={items} />
