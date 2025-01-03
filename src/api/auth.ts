@@ -1,6 +1,6 @@
 import authApiInstance from '@/api/authApiInstance';
 import { END_POINT } from '@/constants/api';
-import { MemberForm } from '@/types/member';
+import { SignUpForm } from '@/types/member';
 
 export const postEmailRequest = async (email: string) => {
   const { data } = await authApiInstance.post(END_POINT.EMAIL_REQUEST, {
@@ -17,21 +17,21 @@ export const postEmailVerify = async (email: string, code: number) => {
   return data;
 };
 
-export const postMember = async (
-  form: Pick<MemberForm, 'nickname' | 'email' | 'password'>,
+export const postSignUp = async (
+  form: Pick<SignUpForm, 'email' | 'nickname' | 'password' | 'passwordConfirm'>,
 ) => {
   const { data } = await authApiInstance.post(`${END_POINT.SIGN_UP}`, form);
   return data;
 };
 
 export const postLogin = async (
-  form: Pick<MemberForm, 'email' | 'password'>,
+  form: Pick<SignUpForm, 'email' | 'password'>,
 ) => {
   const { data } = await authApiInstance.post(`${END_POINT.LOGIN}`, form);
   return data;
 };
 
-export const getMember = async () => {
+export const getUser = async () => {
   const { data } = await authApiInstance.get(`${END_POINT.USER}`);
   return data;
 };
