@@ -7,6 +7,7 @@ interface LoginFormProps {
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
   handleLogin: (email: string, password: string) => void;
+  role?: 'admin' | 'user';
 }
 
 export const LoginForm = ({
@@ -15,6 +16,7 @@ export const LoginForm = ({
   setEmail,
   setPassword,
   handleLogin,
+  role = 'user',
 }: LoginFormProps) => {
   return (
     <form
@@ -41,12 +43,14 @@ export const LoginForm = ({
       <Button size="large" type="submit">
         로그인
       </Button>
-      <div className="text-center text-sm text-gray-600 mt-4">
-        계정이 없으신가요?{' '}
-        <a href="/signup" className="text-blue-500 hover:text-blue-600">
-          회원가입
-        </a>
-      </div>
+      {role === 'user' ? (
+        <div className="text-center text-sm text-gray-600 mt-4">
+          계정이 없으신가요?{' '}
+          <a href="/signup" className="text-blue-500 hover:text-blue-600">
+            회원가입
+          </a>
+        </div>
+      ) : null}
     </form>
   );
 };
