@@ -9,9 +9,13 @@ export const ItemOverviewCard = ({
   tags,
   image,
   status,
+  onClick,
 }: ItemOverviewCardProps) => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 cursor-pointer hover:shadow-md">
+    <div
+      className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 cursor-pointer hover:shadow-md"
+      onClick={onClick}
+    >
       <ImagePreviewBox size="sm" image={image} />
       <div className="flex-1">
         <div className="flex flex-row justify-between">
