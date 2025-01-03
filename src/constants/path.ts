@@ -5,5 +5,5 @@ export const PATH = {
   REGISTER_ITEM: '/register-item',
   ITEM_DETAIL: '/items/:id',
   ADMIN: '/admin',
-  ADMIN_LOGIN: '/admin/login',
+  ADMIN_LOGIN: '/admin-login',
 } as const;

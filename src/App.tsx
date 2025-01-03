@@ -1,5 +1,7 @@
+import ProtectedRoute from '@/components/atoms/ProtectedRoute';
 import { PATH } from '@/constants/path';
 import { Layout } from '@/layouts/Layout';
+import AdminLoginPage from '@/pages/AdminLoginPage';
 import AdminPage from '@/pages/AdminPage';
 import ItemDetailPage from '@/pages/ItemDetailPage';
 import LandingPage from '@/pages/LandingPage';
@@ -18,7 +20,15 @@ const App: React.FC = () => {
         <Route path={PATH.SIGN_UP} element={<SignUpPage />} />
         <Route path={PATH.REGISTER_ITEM} element={<RegisterItemPage />} />
         <Route path={PATH.ITEM_DETAIL} element={<ItemDetailPage />} />
-        <Route path={PATH.ADMIN} element={<AdminPage />} />
+        <Route
+          path={PATH.ADMIN}
+          element={
+            <ProtectedRoute>
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path={PATH.ADMIN_LOGIN} element={<AdminLoginPage />} />
       </Route>
     </Routes>
   );
