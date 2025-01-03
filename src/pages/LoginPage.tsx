@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { LoginForm } from '@/components/organisms/LoginForm';
-import { useNavigate } from 'react-router-dom';
+import { useLoginMutation } from '@/hooks/api/auth/useLoginMutation';
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { mutate: handleLogin } = useLoginMutation();
 
-  const handleLogin = () => {
-    alert('로그인 되었습니다.');
-    navigate('/');
+  const handleSubmit = (email: string, password: string) => {
+    const formData = {
+      email,
+      password,
+    };
+    handleLogin(formData);
   };
 
   return (
@@ -19,7 +22,7 @@ const LoginPage = () => {
         password={password}
         setEmail={setEmail}
         setPassword={setPassword}
-        handleLogin={handleLogin}
+        handleLogin={(email, password) => handleSubmit(email, password)}
       />
     </div>
   );

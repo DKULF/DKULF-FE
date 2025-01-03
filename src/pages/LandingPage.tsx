@@ -10,14 +10,11 @@ import { useItemResultQuery } from '@/hooks/api/item/useItemResultQuery';
 import { Item } from '@/types/Item';
 
 const LandingPage = () => {
-  const { isMenuOpen, setIsMenuOpen } = useMenu();
   const accessToken = localStorage.getItem('accessToken');
-
+  const { isMenuOpen, setIsMenuOpen } = useMenu();
   const [keyword, setKeyword] = useState('');
-
   const { items: initialItems } = useItemListQuery();
   const { items: searchedItems } = useItemResultQuery(keyword);
-
   const displayedItems = keyword ? searchedItems : initialItems;
 
   return (

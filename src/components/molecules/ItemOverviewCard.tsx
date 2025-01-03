@@ -9,18 +9,22 @@ export const ItemOverviewCard = ({
   tags,
   image,
   status,
+  role = 'user',
   onClick,
 }: ItemOverviewCardProps) => {
   return (
     <div
       className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 cursor-pointer hover:shadow-md"
-      onClick={onClick}
+      onClick={role === 'user' ? onClick : () => {}}
     >
       <ImagePreviewBox size="sm" image={image} />
       <div className="flex-1">
         <div className="flex flex-row justify-between">
           <h2 className="font-semibold">{title}</h2>
-          <StatusBadge status={status} />
+          <StatusBadge
+            status={status}
+            onClick={role === 'admin' ? onClick : () => {}}
+          />
         </div>
         <p className="text-sm text-gray-400">{date}</p>
         <div className="flex flex-row gap-1 mt-3">

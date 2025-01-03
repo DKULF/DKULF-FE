@@ -6,7 +6,7 @@ interface LoginFormProps {
   password: string;
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
-  handleLogin: () => void;
+  handleLogin: (email: string, password: string) => void;
 }
 
 export const LoginForm = ({
@@ -21,7 +21,7 @@ export const LoginForm = ({
       className="space-y-8 w-full flex flex-col"
       onSubmit={(e) => {
         e.preventDefault();
-        handleLogin();
+        handleLogin(email, password);
       }}
     >
       <Input

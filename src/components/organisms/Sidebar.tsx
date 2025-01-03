@@ -18,7 +18,10 @@ export const Sidebar = ({
 
   const handleNavigate = (menuItem: MenuItem, isLogout = false) => {
     if (isLogout) {
-      localStorage.removeItem('accessToken');
+      localStorage.clear();
+      handleClose();
+      alert('로그아웃 되었습니다!');
+      window.location.reload();
     }
     navigate(menuItem.route);
   };

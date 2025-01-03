@@ -37,7 +37,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               {...attributes}
             />
             {buttonText && (
-              <Button size="small" onClick={onButtonClick}>
+              <Button size="small" onClick={onButtonClick} type="button">
                 {buttonText}
               </Button>
             )}
