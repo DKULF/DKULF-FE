@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getItemList } from '@/api/item';
 
-export const useFetchItemList = () => {
+export const useItemListQuery = () => {
   const { data } = useQuery({
     queryKey: ['items'],
     queryFn: getItemList,
