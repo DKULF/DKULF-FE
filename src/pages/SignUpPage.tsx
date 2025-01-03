@@ -1,19 +1,33 @@
 import { useState } from 'react';
 import { SignUpForm } from '@/components/organisms/SignUpForm';
-import { useNavigate } from 'react-router-dom';
+import { useRequestEmailMutation } from '@/hooks/api/auth/useRequestEmailMutation';
+import { useVerifyCodeMutation } from '@/hooks/api/auth/useVerifyCodeMutation';
+import { useSignUpMutation } from '@/hooks/api/auth/useSignUpMutation';
 
 const SignUpPage = () => {
-  const navigate = useNavigate();
   const [emailAlert, setEmailAlert] = useState('');
   const [codeAlert, setCodeAlert] = useState('');
   const [passwordAlert, setPasswordAlert] = useState('');
 
+  //회원가입 정보
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState(0);
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [nickname, setNickname] = useState('');
+
+  const { requestMutate, requestMessage } = useRequestEmailMutation();
+  const { verifyMutate, verifyMessage } = useVerifyCodeMutation();
+  const { mutate: handleSignUp } = useSignUpMutation();
+
   const handleEmailSend = () => {
-    setEmailAlert('입력하신 이메일로 인증코드가 전송되었습니다!');
+    requestMutate(email);
+    setEmailAlert(requestMessage);
   };
 
   const handleCodeVerify = () => {
-    setCodeAlert('이메일이 인증되었습니다!');
+    verifyMutate({ email, code });
+    setCodeAlert(verifyMessage);
   };
 
   const handlePasswordCheck = (password: string, confirmPassword: string) => {
@@ -24,9 +38,19 @@ const SignUpPage = () => {
     }
   };
 
-  const handleSignUp = () => {
-    alert('회원가입 되었습니다.');
-    navigate('/');
+  const handleSubmit = (
+    email: string,
+    nickname: string,
+    password: string,
+    passwordConfirm: string,
+  ) => {
+    const formData = {
+      email,
+      password,
+      passwordConfirm,
+      nickname,
+    };
+    handleSignUp(formData);
   };
 
   return (
@@ -35,10 +59,20 @@ const SignUpPage = () => {
         emailAlert={emailAlert}
         codeAlert={codeAlert}
         passwordAlert={passwordAlert}
+        email={email}
+        verifyCode={code}
+        password={password}
+        passwordConfirm={passwordConfirm}
+        nickname={nickname}
+        setEmail={setEmail}
+        setVerifyCode={setCode}
+        setPassword={setPassword}
+        setPasswordConfirm={setPasswordConfirm}
+        setNickname={setNickname}
         handleEmailSend={handleEmailSend}
         handleCodeVerify={handleCodeVerify}
         handlePasswordCheck={handlePasswordCheck}
-        handleSignUp={handleSignUp}
+        handleSignUp={handleSubmit}
       />
     </div>
   );
