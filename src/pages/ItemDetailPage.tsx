@@ -10,7 +10,9 @@ const ItemDetailPage = () => {
   const { item } = useItemDetailQuery(id!);
 
   if (!item) {
-    return <p>로딩중...</p>;
+    return (
+      <div className="text-center text-gray-500 text-sm mt-60">로딩중..</div>
+    );
   }
 
   return (
