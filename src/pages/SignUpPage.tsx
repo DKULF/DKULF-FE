@@ -11,23 +11,21 @@ const SignUpPage = () => {
 
   //회원가입 정보
   const [email, setEmail] = useState('');
-  const [code, setCode] = useState(0);
+  const [code, setCode] = useState<string | number>('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [nickname, setNickname] = useState('');
 
-  const { requestMutate, requestMessage } = useRequestEmailMutation();
-  const { verifyMutate, verifyMessage } = useVerifyCodeMutation();
+  const { mutate: requestMutate } = useRequestEmailMutation(setEmailAlert);
+  const { mutate: verifyMutate } = useVerifyCodeMutation(setCodeAlert);
   const { mutate: handleSignUp } = useSignUpMutation();
 
   const handleEmailSend = () => {
     requestMutate(email);
-    setEmailAlert(requestMessage);
   };
 
   const handleCodeVerify = () => {
     verifyMutate({ email, code });
-    setCodeAlert(verifyMessage);
   };
 
   const handlePasswordCheck = (password: string, confirmPassword: string) => {

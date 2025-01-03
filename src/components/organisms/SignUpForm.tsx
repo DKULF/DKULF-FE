@@ -41,11 +41,11 @@ export const SignUpForm = ({
       />
 
       <Input
-        type="text"
+        type="number"
         label="인증코드"
         placeholder="받으신 인증코드를 입력하세요"
         value={verifyCode}
-        onChange={(e) => setVerifyCode(e.target.valueAsNumber)}
+        onChange={(e) => setVerifyCode(Number(e.target.value))}
         alertMessage={codeAlert}
         buttonText="인증"
         onButtonClick={handleCodeVerify}

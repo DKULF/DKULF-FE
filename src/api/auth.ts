@@ -9,7 +9,7 @@ export const postEmailRequest = async (email: string) => {
   return data;
 };
 
-export const postEmailVerify = async (email: string, code: number) => {
+export const postEmailVerify = async (email: string, code: number | string) => {
   const { data } = await authApiInstance.post(END_POINT.EMAIL_VERIFY, {
     email,
     code,
