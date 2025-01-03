@@ -11,7 +11,7 @@ export interface SignUpFormProps {
   codeAlert: string;
   passwordAlert: string;
   email: string;
-  verifyCode: number;
+  verifyCode: string | number;
   password: string;
   passwordConfirm: string;
   nickname: string;
