@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import { RegisterForm } from '@/components/organisms/RegisterForm';
-import { useNavigate } from 'react-router-dom';
+import { useRegisterItemMutation } from '@/hooks/api/item/useRegisterItemMutation';
 
 const RegisterItemPage = () => {
-  const navigate = useNavigate();
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>('');
+  const { mutate: registerItem } = useRegisterItemMutation();
 
   const handleImageChange = (file: File | null) => {
     if (file) {
@@ -19,9 +18,19 @@ const RegisterItemPage = () => {
     }
   };
 
-  const handleSubmit = () => {
-    alert('등록 완료');
-    navigate('/');
+  const handleSubmit = (name: string, tags: string) => {
+    if (!imageFile) {
+      alert('이미지를 선택해주세요.');
+      return;
+    }
+
+    const formData = {
+      name,
+      tags,
+      image: imageFile,
+    };
+
+    registerItem(formData);
   };
 
   return (
@@ -29,7 +38,7 @@ const RegisterItemPage = () => {
       <RegisterForm
         imagePreview={imagePreview}
         onImageChange={handleImageChange}
-        onSubmit={handleSubmit}
+        onSubmit={(name, tags) => handleSubmit(name, tags)}
       />
     </div>
   );
