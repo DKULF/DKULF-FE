@@ -1,5 +1,6 @@
 import { PATH } from '@/constants/path';
 import { Layout } from '@/layouts/Layout';
+import AdminPage from '@/pages/AdminPage';
 import ItemDetailPage from '@/pages/ItemDetailPage';
 import LandingPage from '@/pages/LandingPage';
 import LoginPage from '@/pages/LoginPage';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Route path={PATH.SIGN_UP} element={<SignUpPage />} />
         <Route path={PATH.REGISTER_ITEM} element={<RegisterItemPage />} />
         <Route path={PATH.ITEM_DETAIL} element={<ItemDetailPage />} />
+        <Route path={PATH.ADMIN} element={<AdminPage />} />
       </Route>
     </Routes>
   );

@@ -1,9 +1,9 @@
-import { ArrowLeft, Menu } from 'lucide-react';
+import { ArrowLeft, Menu, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
   setIsMenuOpen?: (isOpen: boolean) => void;
-  role?: 'landing' | 'others';
+  role?: 'landing' | 'others' | 'admin';
   title?: string;
 }
 
@@ -17,12 +17,15 @@ export const Header = ({
   const handleMainButtonClick = () => {
     if (role === 'landing' && setIsMenuOpen) {
       setIsMenuOpen(true);
-    } else {
+    } else if (role === 'others') {
       navigate('/');
+    } else {
+      navigate('/admin');
     }
   };
 
-  const Icon = role === 'landing' ? Menu : ArrowLeft;
+  const Icon =
+    role === 'landing' ? Menu : role === 'admin' ? Settings : ArrowLeft;
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-40">
