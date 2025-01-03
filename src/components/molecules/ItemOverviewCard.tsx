@@ -9,12 +9,14 @@ export const ItemOverviewCard = ({
   tags,
   image,
   status,
+  onClick,
 }: ItemOverviewCardProps) => {
-  const imageSrc = `data:${image.contentType};base64,${image.data}`;
-
   return (
-    <div className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 cursor-pointer hover:shadow-md">
-      <ImagePreviewBox size="sm" src={imageSrc} />
+    <div
+      className="bg-white p-4 rounded-lg shadow-sm flex items-center space-x-4 cursor-pointer hover:shadow-md"
+      onClick={onClick}
+    >
+      <ImagePreviewBox size="sm" image={image} />
       <div className="flex-1">
         <div className="flex flex-row justify-between">
           <h2 className="font-semibold">{title}</h2>

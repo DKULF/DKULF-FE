@@ -8,6 +8,7 @@ interface InputProps extends ComponentPropsWithRef<'input'> {
   alertMessage?: string;
   buttonText?: string;
   onButtonClick?: () => void;
+  className?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -18,6 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       alertMessage,
       buttonText,
       onButtonClick,
+      className = '',
       ...attributes
     },
     ref,
@@ -31,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <div className="flex space-x-2 items-center">
             <input
               ref={ref}
-              className="w-full p-3 border rounded-lg focus:outline-none"
+              className={`w-full p-3 border rounded-lg focus:outline-none placeholder:text-sm ${className}`}
               {...attributes}
             />
             {buttonText && (

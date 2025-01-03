@@ -1,13 +1,16 @@
+import { ItemImage } from '@/types/Item';
+
 interface ImagePreviewBoxProps {
   size?: 'sm' | 'lg';
-  src?: string;
+  image: ItemImage;
   alt?: string;
 }
 export const ImagePreviewBox = ({
   size = 'sm',
-  src,
+  image,
   alt = '',
 }: ImagePreviewBoxProps) => {
+  const imageSrc = `data:${image.contentType};base64,${image.data}`;
   const sizeClasses = {
     sm: 'w-[85px] h-[85px] rounded-xl',
     lg: 'w-full h-[200px] rounded-t-xl',
@@ -16,7 +19,7 @@ export const ImagePreviewBox = ({
     <div
       className={`shadow-md overflow-hidden ${sizeClasses[size]} bg-gray-200`}
     >
-      <img src={src} className="w-full h-full object-cover" alt={alt} />
+      <img src={imageSrc} className="w-full h-full object-cover" alt={alt} />
     </div>
   );
 };
