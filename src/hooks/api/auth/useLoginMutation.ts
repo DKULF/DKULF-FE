@@ -4,7 +4,7 @@ import { SignUpForm } from '@/types/member';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-export const useLoginMutation = () => {
+export const useLoginMutation = (role: 'admin' | 'user') => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -26,7 +26,11 @@ export const useLoginMutation = () => {
       }
 
       alert('로그인되었습니다!');
-      navigate('/');
+      if (role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
       window.location.reload();
     },
     onError: (error) => {
