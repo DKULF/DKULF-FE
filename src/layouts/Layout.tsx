@@ -7,13 +7,15 @@ import { PATH } from '@/constants/path';
 
 const HEADER_PROPS: Record<
   (typeof PATH)[keyof typeof PATH],
-  { role: 'landing' | 'others'; title: string }
+  { role: 'landing' | 'others' | 'admin'; title: string }
 > = {
   [PATH.LANDING]: { role: 'landing', title: '분실물 찾기' },
   [PATH.LOGIN]: { role: 'others', title: '로그인' },
   [PATH.SIGN_UP]: { role: 'others', title: '회원가입' },
   [PATH.REGISTER_ITEM]: { role: 'others', title: '습득물 등록' },
   [PATH.ITEM_DETAIL]: { role: 'others', title: '습득물 정보' },
+  [PATH.ADMIN]: { role: 'admin', title: '습득물 관리' },
+  [PATH.ADMIN_LOGIN]: { role: 'admin', title: '관리자 로그인' },
 };
 const LayoutContent = () => {
   const location = useLocation();
