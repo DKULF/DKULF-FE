@@ -16,7 +16,7 @@ export interface SignUpFormProps {
   passwordConfirm: string;
   nickname: string;
   setEmail: (value: string) => void;
-  setVerifyCode: (value: number) => void;
+  setVerifyCode: (value: number | string) => void;
   setPassword: (value: string) => void;
   setPasswordConfirm: (value: string) => void;
   setNickname: (value: string) => void;
