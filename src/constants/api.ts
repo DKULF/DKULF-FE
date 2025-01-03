@@ -17,7 +17,7 @@ export const END_POINT = {
   ITEM_KEYWORD: (keyword: string) => `/items/${keyword}`,
 
   //admin API
-  ADMIM_UPDATE: (id: number) => `/admin/item/${id}`,
+  ADMIN_UPDATE: (id: number) => `/admin/item/${id}`,
   ADMIN_DELETE: (id: number) => `/admin/item/${id}`,
   ADMIN_DELETE_ALL: '/admin/items',
 };

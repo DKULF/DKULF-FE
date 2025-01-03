@@ -38,7 +38,7 @@ export const postItem = async (
 
 export const patchItemStatus = async (itemId: string, status: boolean) => {
   const { data } = await itemApiInstance.patch(
-    `${END_POINT.ADMIM_UPDATE}/${itemId}`,
+    `${END_POINT.ADMIN_UPDATE}/${itemId}`,
     { status },
   );
   return data;
