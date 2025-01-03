@@ -5,7 +5,7 @@ import { useLoginMutation } from '@/hooks/api/auth/useLoginMutation';
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { mutate: handleLogin } = useLoginMutation();
+  const { mutate: handleLogin } = useLoginMutation('admin');
 
   const handleSubmit = (email: string, password: string) => {
     const formData = {
