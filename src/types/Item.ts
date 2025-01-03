@@ -10,6 +10,7 @@ export interface ItemOverviewCardProps {
   tags: string[];
   image: ItemImage;
   status: boolean;
+  role?: 'admin' | 'user';
   onClick?: () => void;
 }
 

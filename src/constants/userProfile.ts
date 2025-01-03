@@ -1,8 +1,11 @@
 const accessToken = localStorage.getItem('accessToken');
+const nickname = localStorage.getItem('nickname');
+const email = localStorage.getItem('email');
+
 export const userProfile = accessToken
   ? {
-      name: '홍길동',
-      email: '1231241@dankook.ac.kr',
+      name: nickname as string,
+      email: email as string,
     }
   : {
       name: '로그인해주세요',
