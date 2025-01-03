@@ -5,13 +5,14 @@ export type ItemImage = {
 };
 
 export interface ItemOverviewCardProps {
+  id?: string;
   title: string;
   date: string;
   tags: string[];
   image: ItemImage;
   status: boolean;
   role?: 'admin' | 'user';
-  onClick?: () => void;
+  onClick?: (() => void) | ((itemId: string, status: boolean) => void);
 }
 
 export interface ItemForm {

@@ -1,10 +1,17 @@
 import { SummaryCard } from '@/components/atoms/SummaryCard';
 import { ItemOverviewCard } from '@/components/molecules/ItemOverviewCard';
 import { useItemListQuery } from '@/hooks/api/item/useItemListQuery';
+import { useUpdateItemStatusMutation } from '@/hooks/api/item/useUpdateItemStatusMutation';
 import { Item } from '@/types/Item';
 
 const AdminPage = () => {
   const { items } = useItemListQuery();
+  const { mutate: patchItemStatus } = useUpdateItemStatusMutation();
+
+  const updateStatus = (itemId: string, status: boolean) => {
+    patchItemStatus({ itemId, status });
+  };
+
   return (
     <div className="flex items-center flex-col">
       <SummaryCard totalItems={items} />
@@ -17,11 +24,13 @@ const AdminPage = () => {
           items.map((item: Item) => (
             <ItemOverviewCard
               key={item._id}
+              id={item._id}
               title={item.name}
               date={item.createdAt}
               tags={item.tags}
               image={item.image}
               status={item.status}
+              onClick={(itemId, status) => updateStatus(itemId, status)}
               role="admin"
             />
           ))
